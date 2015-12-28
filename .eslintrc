@@ -1,0 +1,11 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "ponko2/lib/es5",
+  "rules": {
+    "strict": [2, "global"],
+    "func-style": 0
+  }
+}
