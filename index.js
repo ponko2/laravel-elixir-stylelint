@@ -6,7 +6,6 @@ var stylelint = require('stylelint');
 var reporter  = require('postcss-reporter');
 var Elixir    = require('laravel-elixir');
 
-var notify = new Elixir.Notification();
 var config = Elixir.config;
 
 Elixir.extend('stylelint', function (src, options) {
@@ -17,22 +16,13 @@ Elixir.extend('stylelint', function (src, options) {
       '!' + config.get('public.css.outputFolder') + '/vendor/**/*.css'
     ]);
 
-  var onError = function (err) {
-    notify.error(err, 'stylelint failed');
-    this.emit('end');
-  };
-
   new Elixir.Task('stylelint', function () {
     this.log(paths.src);
 
     return gulp.src(paths.src.path)
       .pipe(postcss([
         stylelint({}),
-        reporter({
-          clearMessages: true,
-          throwError: true
-        })
-      ], options || {}))
-      .on('error', onError);
+        reporter({clearMessages: true})
+      ], options || {}));
   }).watch(paths.src.path);
 });
