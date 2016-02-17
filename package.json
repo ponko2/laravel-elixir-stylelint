@@ -1,27 +1,11 @@
 {
   "name": "laravel-elixir-stylelint",
-  "version": "1.0.0",
   "description": "Laravel Elixir stylelint Extension",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ponko2/laravel-elixir-stylelint.git"
-  },
-  "keywords": [
-    "laravel",
-    "elixir",
-    "stylelint",
-    "gulp"
-  ],
+  "version": "1.0.0",
   "author": "Takahito Nakano",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ponko2/laravel-elixir-stylelint/issues"
   },
-  "homepage": "https://github.com/ponko2/laravel-elixir-stylelint",
   "dependencies": {
     "gulp-postcss": "^6.1.0",
     "postcss-reporter": "^1.3.1",
@@ -30,5 +14,21 @@
   "devDependencies": {
     "eslint": "^2.1.0",
     "eslint-config-ponko2": "^2.0.1"
+  },
+  "homepage": "https://github.com/ponko2/laravel-elixir-stylelint",
+  "keywords": [
+    "elixir",
+    "gulp",
+    "laravel",
+    "stylelint"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ponko2/laravel-elixir-stylelint.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
