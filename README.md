@@ -26,7 +26,6 @@ elixir(function(mix) {
 ```javascript
 // gulpfile.js
 var elixir = require('laravel-elixir');
-var scss   = require('postcss-scss');
 var config = elixir.config;
 
 require('laravel-elixir-stylelint');
@@ -34,6 +33,6 @@ require('laravel-elixir-stylelint');
 elixir(function(mix) {
   mix.stylelint([
     config.get('assets.css.sass.folder') + '/**/*.scss'
-  ], {syntax: scss});
+  ]);
 });
 ```

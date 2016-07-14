@@ -1,10 +1,9 @@
 'use strict';
 
-var gulp      = require('gulp');
-var postcss   = require('gulp-postcss');
-var stylelint = require('stylelint');
-var reporter  = require('postcss-reporter');
-var Elixir    = require('laravel-elixir');
+var gulp         = require('gulp');
+var stylelint    = require('gulp-stylelint');
+var objectAssign = require('object-assign');
+var Elixir       = require('laravel-elixir');
 
 var config = Elixir.config;
 
@@ -16,13 +15,18 @@ Elixir.extend('stylelint', function (src, options) {
       '!' + config.get('public.css.outputFolder') + '/vendor/**/*.css'
     ]);
 
+  var stylelintOptions = objectAssign({
+    failAfterError: false,
+    reporters: [{
+      formatter: 'string',
+      console: true
+    }]
+  }, options);
+
   new Elixir.Task('stylelint', function () {
     this.log(paths.src);
 
     return gulp.src(paths.src.path)
-      .pipe(postcss([
-        stylelint({}),
-        reporter({clearMessages: true})
-      ], options || {}));
+      .pipe(stylelint(stylelintOptions));
   }).watch(paths.src.path);
 });
