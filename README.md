@@ -12,8 +12,9 @@ $ touch .stylelintrc
 
 ## Usage
 
+### Example Gulpfile
+
 ```javascript
-// gulpfile.js
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-stylelint');
@@ -23,8 +24,9 @@ elixir(function(mix) {
 });
 ```
 
+### Advanced example
+
 ```javascript
-// gulpfile.js
 var elixir = require('laravel-elixir');
 var config = elixir.config;
 
