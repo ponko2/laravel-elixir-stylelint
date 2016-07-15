@@ -1,5 +1,3 @@
-const objectAssign = require('object-assign');
-
 let stylelint;
 
 export default class StylelintTask extends Elixir.Task {
@@ -56,7 +54,7 @@ export default class StylelintTask extends Elixir.Task {
    * @returns {Stream} Object stream usable in Gulp pipes.
    */
   lint() {
-    return stylelint(objectAssign({
+    return stylelint(Object.assign({
       failAfterError: true,
       reporters: [{
         formatter: 'string',
