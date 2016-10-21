@@ -22,6 +22,7 @@ function getPaths(src) {
   return new Elixir.GulpPaths()
     .src(src || [
       `${Elixir.config.get('assets.css.folder')}/**/*.css`,
+      `${Elixir.config.get('assets.css.sass.folder')}/**/*.scss`,
       `${Elixir.config.get('public.css.outputFolder')}/**/*.css`,
       `!${Elixir.config.get('public.css.outputFolder')}/vendor/**/*.css`
     ]);
