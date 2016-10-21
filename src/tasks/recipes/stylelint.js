@@ -7,7 +7,7 @@ import StylelintTask from '../StylelintTask';
  * @param {object|null}       options Stylelint options
  * @returns {void}
  */
-function task(src, options) {
+function task(src, options = {}) {
   // eslint-disable-next-line no-new
   new StylelintTask('stylelint', getPaths(src), options);
 }

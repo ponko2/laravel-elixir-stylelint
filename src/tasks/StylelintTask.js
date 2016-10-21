@@ -1,4 +1,6 @@
-let stylelint;
+/* eslint-disable class-methods-use-this, global-require */
+
+let gutil, stylelint;
 
 export default class StylelintTask extends Elixir.Task {
   /**
@@ -11,8 +13,14 @@ export default class StylelintTask extends Elixir.Task {
   constructor(name, paths, options) {
     super(name, null, paths);
 
-    this.output  = undefined;
-    this.options = options || {};
+    this.output  = '\u200B';
+    this.options = Object.assign({
+      failAfterError: true,
+      reporters: [{
+        formatter: 'string',
+        console: true
+      }]
+    }, options);
   }
 
   /**
@@ -21,7 +29,7 @@ export default class StylelintTask extends Elixir.Task {
    * @returns {void}
    */
   loadDependencies() {
-    // eslint-disable-next-line global-require
+    gutil = require('gulp-util');
     stylelint = require('gulp-stylelint');
   }
 
@@ -32,10 +40,8 @@ export default class StylelintTask extends Elixir.Task {
    */
   gulpTask() {
     return gulp.src(this.src.path)
-      .pipe((() => {
-        this.recordStep(`Executing ${this.ucName()}`);
-        return this.lint();
-      })())
+      .pipe(this.lint())
+      .pipe(gutil.buffer())
       .on('error', this.onError());
   }
 
@@ -54,12 +60,7 @@ export default class StylelintTask extends Elixir.Task {
    * @returns {Stream} Object stream usable in Gulp pipes.
    */
   lint() {
-    return stylelint(Object.assign({
-      failAfterError: true,
-      reporters: [{
-        formatter: 'string',
-        console: true
-      }]
-    }, this.options));
+    this.recordStep(`Executing ${this.ucName()}`);
+    return stylelint(this.options);
   }
 }
