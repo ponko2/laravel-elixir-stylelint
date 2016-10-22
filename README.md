@@ -5,8 +5,17 @@
 
 ## Install
 
+### Laravel Elixir >=3.0.0-0 <6.0.0-0
+
 ```sh
 $ npm install laravel-elixir-stylelint --save-dev
+$ touch .stylelintrc
+```
+
+### Laravel Elixir >=6.0.0-11
+
+```sh
+$ npm install laravel-elixir-stylelint@beta --save-dev
 $ touch .stylelintrc
 ```
 
