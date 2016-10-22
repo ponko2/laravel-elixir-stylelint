@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp         = require('gulp');
+var gutil        = require('gulp-util');
 var stylelint    = require('gulp-stylelint');
 var objectAssign = require('object-assign');
 var Elixir       = require('laravel-elixir');
@@ -27,6 +28,7 @@ Elixir.extend('stylelint', function (src, options) {
     this.log(paths.src);
 
     return gulp.src(paths.src.path)
-      .pipe(stylelint(stylelintOptions));
+      .pipe(stylelint(stylelintOptions))
+      .pipe(gutil.noop());
   }).watch(paths.src.path);
 });

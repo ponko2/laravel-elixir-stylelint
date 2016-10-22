@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gulp-stylelint": "^3.4.0",
+    "gulp-util": "^3.0.7",
     "object-assign": "^4.1.0"
   },
   "devDependencies": {
