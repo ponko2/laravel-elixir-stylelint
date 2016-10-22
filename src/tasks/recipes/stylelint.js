@@ -19,12 +19,13 @@ function task(src, options = {}) {
  * @returns {GulpPaths} Gulp src paths
  */
 function getPaths(src) {
+  const config = Elixir.config;
+
   return new Elixir.GulpPaths()
     .src(src || [
-      `${Elixir.config.get('assets.css.folder')}/**/*.css`,
-      `${Elixir.config.get('assets.css.sass.folder')}/**/*.scss`,
-      `${Elixir.config.get('public.css.outputFolder')}/**/*.css`,
-      `!${Elixir.config.get('public.css.outputFolder')}/vendor/**/*.css`
+      `${config.get('public.css.folder')}/**/*.css`,
+      `${config.get('assets.css.folder')}/**/*.css`,
+      `${config.get('assets.css.sass.folder')}/**/*.scss`,
     ]);
 }
 
