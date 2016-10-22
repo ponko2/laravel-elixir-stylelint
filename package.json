@@ -1,7 +1,7 @@
 {
   "name": "laravel-elixir-stylelint",
   "description": "Laravel Elixir stylelint Extension",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "author": "Takahito Nakano",
   "bugs": {
     "url": "https://github.com/ponko2/laravel-elixir-stylelint/issues"
