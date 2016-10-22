@@ -33,8 +33,11 @@ var config = elixir.config;
 require('laravel-elixir-stylelint');
 
 elixir(function(mix) {
-  mix.stylelint([
-    config.get('assets.css.sass.folder') + '/**/*.scss'
-  ]);
+  mix.sass('app.scss')
+    .version(['css/app.css'])
+    .stylelint([
+      config.get('assets.css.sass.folder') + '/**/*.scss',
+      '!' + config.get('public.css.outputFolder') + '/app.css'
+    ]);
 });
 ```
