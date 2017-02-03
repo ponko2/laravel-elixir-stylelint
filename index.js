@@ -25,8 +25,6 @@ Elixir.extend('stylelint', function (src, options) {
   }, options);
 
   new Elixir.Task('stylelint', function () {
-    this.log(paths.src);
-
     return gulp.src(paths.src.path)
       .pipe(stylelint(stylelintOptions))
       .pipe(gutil.noop());
