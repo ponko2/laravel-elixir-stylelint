@@ -16,10 +16,12 @@ export default class StylelintTask extends Elixir.Task {
     this.output  = '\u200B';
     this.options = Object.assign({
       failAfterError: true,
-      reporters: [{
-        formatter: 'string',
-        console: true
-      }]
+      reporters: [
+        {
+          formatter: 'string',
+          console: true
+        }
+      ]
     }, options);
   }
 
