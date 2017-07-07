@@ -44,7 +44,7 @@ export default class StylelintTask extends Elixir.Task {
     return gulp.src(this.src.path)
       .pipe(this.lint())
       .on('error', this.onError())
-      .pipe(gutil.noop());
+      .pipe(gutil.buffer());
   }
 
   /**
